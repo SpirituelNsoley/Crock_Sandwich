@@ -1,0 +1,179 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{asset('bower_components/Css/main.css')}}">
+{% endblock %}
+{% block className %}""
+{% endblock %}
+{% block body %}
+	{% block nav %}
+		<nav class="navPremenu">
+			<section class="info">
+				<div class="infoDroite">
+					<i class="fa fa-phone"></i>
+					<span class="infoNumTel">
+						+221 78 000 00 00 /
+					</span>
+					<span class="infoNumTel">
+						+221 33 000 00 00
+					</span>
+
+				</div>
+				<div class="infoGauche">
+					<i class="fab fa-facebook"></i>
+					<i class="fab fa-instagram"></i>
+					<i class="fab fa-pinterest"></i>
+					<span class="infoNumTel">
+						Fr/
+					</span>
+					<span class="infoNumTel">
+						An
+					</span>
+				</div>
+			</section>
+			{# <img src="././images/crockLogo.png" alt="logo"> #}
+		</nav>
+	{% endblock %}
+	{% block  navbar %}
+		<nav class="navbar navbar-expand-lg navbar-light  navbarBackground">
+			<button class="navbar-toggler btn-light" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon" style="color:#ffb900;"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav" style="margin-left:90px">
+					{% for menu in menus  %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{menu.link}}" style="color:#fff; font-size: 18px;">{{menu.name}}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</nav>
+	{% endblock %}
+	{% block catalogue %}
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-lg-3">
+
+					<h1 class="navbar-brand" style="color:#ffb900; font-size:34px; font-weight:bold; text-style:italic;">Crock Sandwich</h1>
+					<div class="list-group bg-dark">
+						<a href="#" class="list-group-item" style="border-bottom:none;">Nos Sandwichs</a>
+						<a href="#" class="list-group-item" style="border-bottom:none;">Les Sandwichs de la communauté</a>
+					</div>
+					<br>
+					<br>
+					<br>
+
+				</div>
+				<!-- /.col-lg-3 -->
+				<!--Slider des Sandwichs-->
+				<div class="col-lg-9">
+					<br>
+					<div class="row">
+						<div class="title" style="width:100%;">
+							<h1 class="h1" style="margin-bottom:40px; border-bottom:1px solid #f7c608; border-top:1px solid #000; width:100%; ">Sandwichs Crees
+							</h1>
+						</div>
+
+						<div class="col-lg-4 col-md-6 mb-4">
+							<div class="card h-100" style="margin-bottom:40px; border-bottom:1px solid #f7c608; border-top:1px solid #000; ">
+
+								<a href="#link"><img class="card-img-top" src="#img" alt=""></a>
+								<div class="card-body">
+									<h4 class="card-title">
+										<a href="#">Nom d'un Sandwich</a>
+									</h4>
+									<h5>Prix d'un Sandwich</h5>
+									<p class="card-text">Le sandwichs est composées
+										<strong>
+											Compo
+										</strong>
+										<strong>
+											Compo
+										</strong>
+										<strong>
+											Compo
+										</strong>
+										<strong>
+											Compo
+										</strong>
+										<strong>
+											Compo
+										</strong>
+										<strong>
+											Compo
+										</strong>
+									</p>
+								</div>
+								<div class="card-footer">
+									<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- /.row -->
+					<!-- Nos Menus -->
+				</div>
+				<!-- /.row -->
+
+			</div>
+			<div class="row">
+				<div class="title" style="width:100%;">
+					<h1 class="h1" style="margin-bottom:40px; border-bottom:1px solid #f7c608; border-top:1px solid #000; width:100%; ">Sandwichs Crees
+					</h1>
+				</div>
+	{% for sandwich in sandwichs  %}
+				<div class="col-lg-4 col-md-6 mb-4">
+					<div class="card h-100" style="margin-bottom:40px; border-bottom:1px solid #f7c608; border-top:1px solid #000; ">
+						<a href="#link"><img class="card-img-top" src="#img" alt=""></a>
+						{# Debut #}
+						
+						<div class="card-body">
+							<h5 class="card-title">
+							{{sandwich.name}}
+							</h5>
+							<h6>{{sandwich.price}}</h6>
+							<p class="card-text">Le sandwichs est composées
+								<strong>
+									Compo
+								</strong>
+								<strong>
+									Compo
+								</strong>
+								<strong>
+									Compo
+								</strong>
+								<strong>
+									Compo
+								</strong>
+								<strong>
+									Compo
+								</strong>
+								<strong>
+									Compo
+								</strong>
+							</p>
+						</div>
+						
+						{# Fin de la card body #}
+						<div class="card-footer">
+							<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+
+		</div>
+
+		<!-- /.col-lg-9 -->
+
+	</div>
+	<!-- /.row -->
+
+</div>{% endblock %}{% endblock %}

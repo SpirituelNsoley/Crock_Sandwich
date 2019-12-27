@@ -1,0 +1,48 @@
+{% extends "pages/BackApp/admin.html.twig" %}
+{% block Container %}
+     <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">ingredient</h1>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Table ingredient</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered table-dark  table-hover table-info" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>id</th>
+                      <th>nom</th>
+                      <th>Prix</th>
+                      <th>date d'ajout</th>
+                      <th>Etat</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  {% for ingredient in ingredients  %} 
+                    <tr>
+
+                      <td>{{ingredient.id}}</td>
+                      <td>{{ingredient.name}}</td>
+                      <td>{{ingredient.price}}</td>
+                      <td>{{ingredient.createdAt|date("d-m-Y | H:i:s")}}</td> 
+
+                      <td>{% if ingredient.statement == 1 %}
+                          <button type="button" class="btn btn-danger">Desactiver</button>
+                      {% else %}
+                          <button type="button" class="btn btn-primary">Activer</button>
+                      {% endif %}</td> 
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+{% endblock %}
