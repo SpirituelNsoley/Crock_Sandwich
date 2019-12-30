@@ -36,6 +36,16 @@ class BreadRepository extends ServiceEntityRepository
     }
     */
 
+    public function findUse($id)
+    {
+        return $this->createQueryBuilder('b')
+            ->innerjoin('b.sandwich', 'sandwich')
+            ->where('sandwich.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
+    }
+
     /*
     public function findOneBySomeField($value): ?Bread
     {

@@ -16,18 +16,19 @@
                     <tr>
                       <th>id</th>
                       <th>nom</th>
+                      <th>Nom du pain</th>
                       <th>Prix</th>
                       <th>date d'ajout</th>
                       <th>Etat</th>
                     </tr>
                   </thead>
                   <tbody>
-
+                    {% set i=0 %}
                   {% for sandwich in sandwichs  %} 
-                    <tr>
-
+                 
                       <td>{{sandwich.id}}</td>
                       <td>{{sandwich.name}}</td>
+                      <td>{{breads[i][0].name}}</td>
                       <td>{{sandwich.price}}</td>
                       <td>{{sandwich.createdAt|date("d-m-Y | H:i:s")}}</td> 
 
@@ -37,6 +38,7 @@
                           <button type="button" class="btn btn-primary">Activer</button>
                       {% endif %}</td> 
                     </tr>
+                    {% set i=i+1 %}
                     {% endfor %}
                   </tbody>
                 </table>

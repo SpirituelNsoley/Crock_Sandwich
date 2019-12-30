@@ -64,10 +64,14 @@ class AdminController  extends AbstractController
      * @Route("/adminSection/showSandwich", name="showAllSandwich")
      * @return Response
      */
-    public function showSandwich(SandwichRepository $repoSandwich):Response{
-        $sandwichs=$repoSandwich->findAll();
+    public function showSandwich(SandwichRepository $repoSandwich,BreadRepository $repoBread):Response{
+        $sandwichs=$repoSandwich->findAll();  
+        foreach ($sandwichs as  $sandwich) {
+            $breads[]=$repoBread->findUse($sandwich->getId());
+        }
         return new Response($this->renderView('pages/BackApp/Sandwich/show.html.twig', [
             'sandwichs'=>$sandwichs,
+            'breads'=>$breads,
         ]));
     }
 
@@ -87,7 +91,10 @@ class AdminController  extends AbstractController
      * @return Response
      */
     public function showBread(BreadRepository $repoBread):Response{
+
         $breads=$repoBread->findAll();       
+        $breadp=$repoBread->findUse(1);
+        dd($breads[0]->getId());
         return new Response($this->renderView('pages/BackApp/Bread/show.html.twig', [
             'breads'=>$breads,
         ]));

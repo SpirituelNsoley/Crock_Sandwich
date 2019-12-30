@@ -1,0 +1,1 @@
+SELECT bread.id , bread.name FROM bread INNER JOIN bread_sandwich ON bread.id = bread_sandwich.bread_id INNER JOIN sandwich ON bread_sandwich.sandwich_id = sandwich.id GROUP BY bread.id
