@@ -83,7 +83,7 @@ class __TwigTemplate_06fe126d3aa8640fcb96c2b5bb0f242903006ae3cc0272f2160d502d360
                       <th>nom</th>
                       <th>Prix</th>
                       <th>date d'ajout</th>
-                      <th>Etat</th>
+                      <th>Supprimer Ou ajouter</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -112,29 +112,27 @@ class __TwigTemplate_06fe126d3aa8640fcb96c2b5bb0f242903006ae3cc0272f2160d502d360
             // line 32
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["bread"], "createdAt", [], "any", false, false, false, 32), "d-m-Y | H:i:s"), "html", null, true);
             echo "</td> 
-
-                      <td>";
+                      <td>
+                      <a class=\"btn btn-large btn-xs btn-danger m-2\" href=\"";
             // line 34
-            if ((twig_get_attribute($this->env, $this->source, $context["bread"], "statement", [], "any", false, false, false, 34) == 1)) {
-                // line 35
-                echo "                          <button type=\"button\" class=\"btn btn-danger\">Desactiver</button>
-                      ";
-            } else {
-                // line 37
-                echo "                          <button type=\"button\" class=\"btn btn-primary\">Activer</button>
-                      ";
-            }
-            // line 38
-            echo "</td> 
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteBread", ["id" => twig_get_attribute($this->env, $this->source, $context["bread"], "id", [], "any", false, false, false, 34)]), "html", null, true);
+            echo "\" onClick=\"return confirm('Voulez vous supprimmer ?');\" role=\"button\">Supprimer</a>
+                      <a class=\"btn btn-large btn-xs btn-warning\" href=\"\" onClick=\"return confirm('Voulez vous supprimmer ?');\" role=\"button\">Editer</a>
+                    </td>
+
                     </tr>
                     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['bread'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 41
+        // line 40
         echo "                  </tbody>
                 </table>
+                <a class=\"btn btn-primary\"href=\"";
+        // line 42
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("addBread");
+        echo "\" role=\"button\">Ajouter Un pain</a>
               </div>
             </div>
           </div>
@@ -161,7 +159,7 @@ class __TwigTemplate_06fe126d3aa8640fcb96c2b5bb0f242903006ae3cc0272f2160d502d360
 
     public function getDebugInfo()
     {
-        return array (  136 => 41,  128 => 38,  124 => 37,  120 => 35,  118 => 34,  113 => 32,  109 => 31,  105 => 30,  101 => 29,  93 => 26,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  134 => 42,  130 => 40,  118 => 34,  113 => 32,  109 => 31,  105 => 30,  101 => 29,  93 => 26,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -186,7 +184,7 @@ class __TwigTemplate_06fe126d3aa8640fcb96c2b5bb0f242903006ae3cc0272f2160d502d360
                       <th>nom</th>
                       <th>Prix</th>
                       <th>date d'ajout</th>
-                      <th>Etat</th>
+                      <th>Supprimer Ou ajouter</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -198,16 +196,16 @@ class __TwigTemplate_06fe126d3aa8640fcb96c2b5bb0f242903006ae3cc0272f2160d502d360
                       <td>{{bread.name}}</td>
                       <td>{{bread.price}}</td>
                       <td>{{bread.createdAt|date(\"d-m-Y | H:i:s\")}}</td> 
+                      <td>
+                      <a class=\"btn btn-large btn-xs btn-danger m-2\" href=\"{{ path('deleteBread',{id: bread.id}) }}\" onClick=\"return confirm('Voulez vous supprimmer ?');\" role=\"button\">Supprimer</a>
+                      <a class=\"btn btn-large btn-xs btn-warning\" href=\"\" onClick=\"return confirm('Voulez vous supprimmer ?');\" role=\"button\">Editer</a>
+                    </td>
 
-                      <td>{% if bread.statement == 1 %}
-                          <button type=\"button\" class=\"btn btn-danger\">Desactiver</button>
-                      {% else %}
-                          <button type=\"button\" class=\"btn btn-primary\">Activer</button>
-                      {% endif %}</td> 
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
+                <a class=\"btn btn-primary\"href=\"{{path('addBread')}}\" role=\"button\">Ajouter Un pain</a>
               </div>
             </div>
           </div>

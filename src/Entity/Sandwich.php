@@ -39,7 +39,8 @@ class Sandwich
     private $ingredient;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Bread", mappedBy="sandwich")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Bread", inversedBy="sandwich")
+     * @ORM\JoinTable(name="sandwich_bread")
      */
     private $bread;
 
@@ -53,6 +54,7 @@ class Sandwich
         $this->createdAt=new \DateTime();
         $this->ingredient = new ArrayCollection();
         $this->bread = new ArrayCollection();
+        $this->price=$this->getPriceSandwich();
     }
 
     public function getId(): ?int
@@ -139,7 +141,13 @@ class Sandwich
 
         return $this;
     }
+    function setBread($breads) {
 
+        $this->breads = $breads;
+        
+        return $this;
+        
+        }
     public function removeBread(Bread $bread): self
     {
         if ($this->bread->contains($bread)) {
@@ -161,4 +169,50 @@ class Sandwich
 
         return $this;
     }
+    public function getPriceSandwich():?int
+    {
+        $ingredients=$this->getIngredient();
+        $priceIngredients=0;
+        foreach ($ingredients as  $ingredient) {
+            $priceIngredients +=$ingredient->getPrice();
+        }
+        $breads=$this->getBread();
+        $priceBreads=0;
+        foreach ($breads as  $bread) {
+            $priceBreads +=$bread->getPrice();
+        } 
+        return $priceSandwich= $priceBreads + $priceIngredients;
+    }
+
+
+    public function getNameIngredient():?string
+    {
+        $ingredients=$this->getIngredient();
+        foreach ($ingredients as  $ingredient) {
+            $nameIngredients[]=$ingredient->getName();
+        }
+        $allNameIngredients="";
+        foreach ($nameIngredients as $name) {
+            
+            $allNameIngredients.=" ".$name;           
+         }
+        return $allNameIngredients;
+    }
+
+
+    public function getNameBread():?string
+    {
+        $breads=$this->getBread();
+        $namesBreads=[];
+        foreach ($breads as  $bread) {
+            $namesBreads[]=$bread->getName();
+        }
+        $allNameBreads="";
+        foreach ($namesBreads as $name) { 
+            $allNameBreads.=" ".$name;           
+         }
+     
+        return $allNameBreads;
+    }
+
 }

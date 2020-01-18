@@ -20,7 +20,6 @@
                       <th>login</th>
                       <th>Mots de passe</th>
                       <th>Adresse</th>
-                      <th>Etat</th>
                       <th>Date de Creation</th>
                     </tr>
                   </thead>
@@ -34,17 +33,15 @@
                       <td>{{user.lastName}}</td>
                       <td>{{user.login}}</td>
                       <td>{{user.password}}</td>
-                      <td>{{user.address}}</td>
-                 <td>{% if user.statement == 1 %}
-                          <button type="button" class="btn btn-danger">Desactiver</button>
-                      {% else %}
-                          <button type="button" class="btn btn-primary">Activer</button>
-                      {% endif %}</td>             
-                      <td>{{user.createdAt|date("d-m-Y | h:m:i")}}</td>                  
+                      <td>{{user.address}}</td>           
+                      <td>{{user.createdAt|date("d-m-Y | h:m:i")}}</td> 
+                      <a class="btn btn-large btn-xs btn-danger m-2" href="{{ path('deleteMenu',{id: menu.id}) }}" onClick="return confirm('Voulez vous supprimmer ?');" role="button">Supprimer</a>
+                      <a class="btn btn-large btn-xs btn-warning" href="" onClick="return confirm('Voulez vous supprimmer ?');" role="button">Editer</a>                 
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
+                <a class="btn btn-primary"href="{{path('addUser')}}" role="button">Ajouter Un utilisateur</a>
               </div>
             </div>
           </div>

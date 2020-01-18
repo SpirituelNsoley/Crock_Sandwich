@@ -17,7 +17,7 @@
                       <th>id</th>
                       <th>libelle</th>
                       <th>Date d'ajout </th>
-                      <th>Etat</th>
+                      <th>Supprimer / Editer</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -28,12 +28,17 @@
                       <td>{{profil.id}}</td>
                       <td>{{profil.libelle}}</td>
                       <td>{{profil.createdAt|date("d-m-Y | H:i:s")}}</td> 
-                      <td>{{profil.statement}}</td>
+                      <td class="inline-block">
+                        <a class="btn btn-large btn-xs btn-danger m-2" href="{{ path('deleteProfil',{id: profil.id}) }}" onClick="return confirm('Voulez vous supprimmer ?');" role="button">Supprimer</a>
+                        <a class="btn btn-large btn-xs btn-warning" href="" onClick="return confirm('Voulez vous supprimmer ?');" role="button">Editer</a>
+                      </td>
+
                   
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
+                <a class="btn btn-primary"href="{{path('{{path('editProfil',{id: profil.id})}}')}}" role="button">Ajouter Un profil</a>
               </div>
             </div>
           </div>

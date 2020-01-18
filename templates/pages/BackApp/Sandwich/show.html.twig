@@ -16,10 +16,10 @@
                     <tr>
                       <th>id</th>
                       <th>nom</th>
-                      <th>Nom du pain</th>
                       <th>Prix</th>
                       <th>date d'ajout</th>
-                      <th>Etat</th>
+                      <th>Supprimer Ou Editer</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -28,15 +28,14 @@
                  
                       <td>{{sandwich.id}}</td>
                       <td>{{sandwich.name}}</td>
-                      <td>{{breads[i][0].name}}</td>
-                      <td>{{sandwich.price}}</td>
+                      <td>{{prices[i]}}</td>
                       <td>{{sandwich.createdAt|date("d-m-Y | H:i:s")}}</td> 
+                      <td><a class="btn btn-large btn-xs btn-danger m-2" href="{{ path('deleteSandwich',{id: sandwich.id}) }}" onClick="return confirm('Voulez vous supprimmer ?');" role="button">Supprimer</a>
+                        <a class="btn btn-large btn-xs btn-warning" href="" role="button">Editer</a></td>
 
-                      <td>{% if sandwich.statement == 1 %}
-                          <button type="button" class="btn btn-danger">Desactiver</button>
-                      {% else %}
-                          <button type="button" class="btn btn-primary">Activer</button>
-                      {% endif %}</td> 
+                   
+
+
                     </tr>
                     {% set i=i+1 %}
                     {% endfor %}
@@ -45,6 +44,6 @@
               </div>
             </div>
           </div>
-
+          <a class="btn btn-primary"href="{{path('addSandwich')}}" role="button">Ajouter Un Sandwich</a>
         </div>
 {% endblock %}

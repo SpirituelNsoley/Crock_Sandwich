@@ -328,6 +328,27 @@
         <argument type="service" id=".service_locator.WkgBPi_.App\Controller\HomeController"/>
       </call>
     </service>
+    <service id="App\Form\BreadType" class="App\Form\BreadType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\IngredientType" class="App\Form\IngredientType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\JuiceType" class="App\Form\JuiceType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\MenuType" class="App\Form\MenuType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ProfilType" class="App\Form\ProfilType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SandwichType" class="App\Form\SandwichType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Repository\BreadRepository" class="App\Repository\BreadRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -764,9 +785,17 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
+        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\BreadType</argument>
+        <argument>App\Form\IngredientType</argument>
+        <argument>App\Form\JuiceType</argument>
+        <argument>App\Form\MenuType</argument>
+        <argument>App\Form\ProfilType</argument>
+        <argument>App\Form\SandwichType</argument>
+        <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1105,7 +1134,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.SFX6J7Y"/>
+      <argument type="service" id=".service_locator.hJcXgyp"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4610,6 +4639,20 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\BreadType" class="App\Form\BreadType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\BreadType" class="App\Form\BreadType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\IngredientType" class="App\Form\IngredientType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\IngredientType" class="App\Form\IngredientType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\JuiceType" class="App\Form\JuiceType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\JuiceType" class="App\Form\JuiceType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MenuType" class="App\Form\MenuType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\MenuType" class="App\Form\MenuType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProfilType" class="App\Form\ProfilType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ProfilType" class="App\Form\ProfilType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SandwichType" class="App\Form\SandwichType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SandwichType" class="App\Form\SandwichType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BreadRepository" class="App\Repository\BreadRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\BreadRepository" class="App\Repository\BreadRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\IngredientRepository" class="App\Repository\IngredientRepository" autowire="true" abstract="true"/>
@@ -4819,11 +4862,28 @@
         <argument key="repoProfil" type="service" id="App\Repository\ProfilRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.yclmhZe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.BhyLYk7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="repoBread" type="service" id="App\Repository\BreadRepository"/>
+        <argument key="repo" type="service" id="App\Repository\ProfilRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.jn9Vmp2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repo" type="service" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.N0h0qix" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
         <argument key="repoSandwich" type="service" id="App\Repository\SandwichRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.f5MADhp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repo" type="service" id="App\Repository\SandwichRepository"/>
       </argument>
     </service>
     <service id=".service_locator.ZTnZQBh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4832,16 +4892,40 @@
         <argument key="repoIngredient" type="service" id="App\Repository\IngredientRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.ErM7OZx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repo" type="service" id="App\Repository\IngredientRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.uSawJ77" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repo" type="service" id="App\Repository\BreadRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.3R0Cuh4" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="repoBread" type="service" id="App\Repository\BreadRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.oo.b0Ac" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repo" type="service" id="App\Repository\JuiceRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.tJc5u2u" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="repoJuice" type="service" id="App\Repository\JuiceRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.5pClPST" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repo" type="service" id="App\Repository\MenuRepository"/>
       </argument>
     </service>
     <service id=".service_locator.NtDtawa" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4857,25 +4941,41 @@
         <argument key="repoSandwich" type="service" id="App\Repository\SandwichRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.JEGtefT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.sHVghnB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\AdminController::deleteBread" type="service" id=".service_locator.uSawJ77"/>
+        <argument key="App\Controller\AdminController::deleteIngredient" type="service" id=".service_locator.ErM7OZx"/>
+        <argument key="App\Controller\AdminController::deleteJuice" type="service" id=".service_locator.oo.b0Ac"/>
+        <argument key="App\Controller\AdminController::deleteMenu" type="service" id=".service_locator.5pClPST"/>
+        <argument key="App\Controller\AdminController::deleteProfil" type="service" id=".service_locator.BhyLYk7"/>
+        <argument key="App\Controller\AdminController::deleteSandwich" type="service" id=".service_locator.f5MADhp"/>
+        <argument key="App\Controller\AdminController::deleteUser" type="service" id=".service_locator.jn9Vmp2"/>
+        <argument key="App\Controller\AdminController::editProfil" type="service" id=".service_locator.BhyLYk7"/>
         <argument key="App\Controller\AdminController::index" type="service" id=".service_locator.tG_k6Te"/>
         <argument key="App\Controller\AdminController::showBread" type="service" id=".service_locator.3R0Cuh4"/>
         <argument key="App\Controller\AdminController::showIngredient" type="service" id=".service_locator.ZTnZQBh"/>
         <argument key="App\Controller\AdminController::showJuice" type="service" id=".service_locator.tJc5u2u"/>
         <argument key="App\Controller\AdminController::showMenu" type="service" id=".service_locator.NtDtawa"/>
         <argument key="App\Controller\AdminController::showProfil" type="service" id=".service_locator.oSH_bgl"/>
-        <argument key="App\Controller\AdminController::showSandwich" type="service" id=".service_locator.yclmhZe"/>
+        <argument key="App\Controller\AdminController::showSandwich" type="service" id=".service_locator.N0h0qix"/>
         <argument key="App\Controller\AdminController::showUser" type="service" id=".service_locator.tG_k6Te"/>
         <argument key="App\Controller\HomeController::index" type="service" id=".service_locator.hxQ_dZC"/>
+        <argument key="App\Controller\AdminController:deleteBread" type="service" id=".service_locator.uSawJ77"/>
+        <argument key="App\Controller\AdminController:deleteIngredient" type="service" id=".service_locator.ErM7OZx"/>
+        <argument key="App\Controller\AdminController:deleteJuice" type="service" id=".service_locator.oo.b0Ac"/>
+        <argument key="App\Controller\AdminController:deleteMenu" type="service" id=".service_locator.5pClPST"/>
+        <argument key="App\Controller\AdminController:deleteProfil" type="service" id=".service_locator.BhyLYk7"/>
+        <argument key="App\Controller\AdminController:deleteSandwich" type="service" id=".service_locator.f5MADhp"/>
+        <argument key="App\Controller\AdminController:deleteUser" type="service" id=".service_locator.jn9Vmp2"/>
+        <argument key="App\Controller\AdminController:editProfil" type="service" id=".service_locator.BhyLYk7"/>
         <argument key="App\Controller\AdminController:index" type="service" id=".service_locator.tG_k6Te"/>
         <argument key="App\Controller\AdminController:showBread" type="service" id=".service_locator.3R0Cuh4"/>
         <argument key="App\Controller\AdminController:showIngredient" type="service" id=".service_locator.ZTnZQBh"/>
         <argument key="App\Controller\AdminController:showJuice" type="service" id=".service_locator.tJc5u2u"/>
         <argument key="App\Controller\AdminController:showMenu" type="service" id=".service_locator.NtDtawa"/>
         <argument key="App\Controller\AdminController:showProfil" type="service" id=".service_locator.oSH_bgl"/>
-        <argument key="App\Controller\AdminController:showSandwich" type="service" id=".service_locator.yclmhZe"/>
+        <argument key="App\Controller\AdminController:showSandwich" type="service" id=".service_locator.N0h0qix"/>
         <argument key="App\Controller\AdminController:showUser" type="service" id=".service_locator.tG_k6Te"/>
         <argument key="App\Controller\HomeController:index" type="service" id=".service_locator.hxQ_dZC"/>
       </argument>
@@ -4939,9 +5039,16 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.SFX6J7Y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.hJcXgyp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\BreadType" type="service" id="App\Form\BreadType"/>
+        <argument key="App\Form\IngredientType" type="service" id="App\Form\IngredientType"/>
+        <argument key="App\Form\JuiceType" type="service" id="App\Form\JuiceType"/>
+        <argument key="App\Form\MenuType" type="service" id="App\Form\MenuType"/>
+        <argument key="App\Form\ProfilType" type="service" id="App\Form\ProfilType"/>
+        <argument key="App\Form\SandwichType" type="service" id="App\Form\SandwichType"/>
+        <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -5276,12 +5383,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.JEGtefT"/>
+      <argument type="service" id=".service_locator.sHVghnB"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.JEGtefT"/>
+      <argument type="service" id=".service_locator.sHVghnB"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5693,7 +5800,7 @@
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.JEGtefT"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.sHVghnB"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>

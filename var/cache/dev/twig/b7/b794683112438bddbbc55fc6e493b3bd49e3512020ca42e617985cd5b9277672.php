@@ -81,10 +81,10 @@ class __TwigTemplate_8fb86a7a9772171541e5965648ef532bbdddc13ff29bdaee332680e79f1
                     <tr>
                       <th>id</th>
                       <th>nom</th>
-                      <th>Nom du pain</th>
                       <th>Prix</th>
                       <th>date d'ajout</th>
-                      <th>Etat</th>
+                      <th>Supprimer Ou Editer</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -108,47 +108,41 @@ class __TwigTemplate_8fb86a7a9772171541e5965648ef532bbdddc13ff29bdaee332680e79f1
             echo "</td>
                       <td>";
             // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["breads"]) || array_key_exists("breads", $context) ? $context["breads"] : (function () { throw new RuntimeError('Variable "breads" does not exist.', 31, $this->source); })()), (isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 31, $this->source); })()), [], "array", false, false, false, 31), 0, [], "array", false, false, false, 31), "name", [], "any", false, false, false, 31), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["prices"]) || array_key_exists("prices", $context) ? $context["prices"] : (function () { throw new RuntimeError('Variable "prices" does not exist.', 31, $this->source); })()), (isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 31, $this->source); })()), [], "array", false, false, false, 31), "html", null, true);
             echo "</td>
                       <td>";
             // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sandwich"], "price", [], "any", false, false, false, 32), "html", null, true);
-            echo "</td>
-                      <td>";
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sandwich"], "createdAt", [], "any", false, false, false, 32), "d-m-Y | H:i:s"), "html", null, true);
+            echo "</td> 
+                      <td><a class=\"btn btn-large btn-xs btn-danger m-2\" href=\"";
             // line 33
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sandwich"], "createdAt", [], "any", false, false, false, 33), "d-m-Y | H:i:s"), "html", null, true);
-            echo "</td> 
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteSandwich", ["id" => twig_get_attribute($this->env, $this->source, $context["sandwich"], "id", [], "any", false, false, false, 33)]), "html", null, true);
+            echo "\" onClick=\"return confirm('Voulez vous supprimmer ?');\" role=\"button\">Supprimer</a>
+                        <a class=\"btn btn-large btn-xs btn-warning\" href=\"\" role=\"button\">Editer</a></td>
 
-                      <td>";
-            // line 35
-            if ((twig_get_attribute($this->env, $this->source, $context["sandwich"], "statement", [], "any", false, false, false, 35) == 1)) {
-                // line 36
-                echo "                          <button type=\"button\" class=\"btn btn-danger\">Desactiver</button>
-                      ";
-            } else {
-                // line 38
-                echo "                          <button type=\"button\" class=\"btn btn-primary\">Activer</button>
-                      ";
-            }
-            // line 39
-            echo "</td> 
+                   
+
+
                     </tr>
                     ";
+            // line 40
+            $context["i"] = ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 40, $this->source); })()) + 1);
             // line 41
-            $context["i"] = ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 41, $this->source); })()) + 1);
-            // line 42
             echo "                    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sandwich'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 43
+        // line 42
         echo "                  </tbody>
                 </table>
               </div>
             </div>
           </div>
-
+          <a class=\"btn btn-primary\"href=\"";
+        // line 47
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("addSandwich");
+        echo "\" role=\"button\">Ajouter Un Sandwich</a>
         </div>
 ";
         
@@ -171,7 +165,7 @@ class __TwigTemplate_8fb86a7a9772171541e5965648ef532bbdddc13ff29bdaee332680e79f1
 
     public function getDebugInfo()
     {
-        return array (  146 => 43,  140 => 42,  138 => 41,  134 => 39,  130 => 38,  126 => 36,  124 => 35,  119 => 33,  115 => 32,  111 => 31,  107 => 30,  103 => 29,  95 => 27,  93 => 26,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  144 => 47,  137 => 42,  131 => 41,  129 => 40,  119 => 33,  115 => 32,  111 => 31,  107 => 30,  103 => 29,  95 => 27,  93 => 26,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -194,10 +188,10 @@ class __TwigTemplate_8fb86a7a9772171541e5965648ef532bbdddc13ff29bdaee332680e79f1
                     <tr>
                       <th>id</th>
                       <th>nom</th>
-                      <th>Nom du pain</th>
                       <th>Prix</th>
                       <th>date d'ajout</th>
-                      <th>Etat</th>
+                      <th>Supprimer Ou Editer</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -206,15 +200,14 @@ class __TwigTemplate_8fb86a7a9772171541e5965648ef532bbdddc13ff29bdaee332680e79f1
                  
                       <td>{{sandwich.id}}</td>
                       <td>{{sandwich.name}}</td>
-                      <td>{{breads[i][0].name}}</td>
-                      <td>{{sandwich.price}}</td>
+                      <td>{{prices[i]}}</td>
                       <td>{{sandwich.createdAt|date(\"d-m-Y | H:i:s\")}}</td> 
+                      <td><a class=\"btn btn-large btn-xs btn-danger m-2\" href=\"{{ path('deleteSandwich',{id: sandwich.id}) }}\" onClick=\"return confirm('Voulez vous supprimmer ?');\" role=\"button\">Supprimer</a>
+                        <a class=\"btn btn-large btn-xs btn-warning\" href=\"\" role=\"button\">Editer</a></td>
 
-                      <td>{% if sandwich.statement == 1 %}
-                          <button type=\"button\" class=\"btn btn-danger\">Desactiver</button>
-                      {% else %}
-                          <button type=\"button\" class=\"btn btn-primary\">Activer</button>
-                      {% endif %}</td> 
+                   
+
+
                     </tr>
                     {% set i=i+1 %}
                     {% endfor %}
@@ -223,7 +216,7 @@ class __TwigTemplate_8fb86a7a9772171541e5965648ef532bbdddc13ff29bdaee332680e79f1
               </div>
             </div>
           </div>
-
+          <a class=\"btn btn-primary\"href=\"{{path('addSandwich')}}\" role=\"button\">Ajouter Un Sandwich</a>
         </div>
 {% endblock %}", "pages/BackApp/Sandwich/show.html.twig", "C:\\Users\\BETOE CHARLENE\\Desktop\\CROCK_SANDWICH\\CROCK_SANDWICH\\templates\\pages\\BackApp\\Sandwich\\show.html.twig");
     }

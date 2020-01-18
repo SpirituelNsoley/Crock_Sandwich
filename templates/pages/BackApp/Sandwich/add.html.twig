@@ -1,0 +1,45 @@
+{% extends "pages/BackApp/admin.html.twig" %}
+{% block Container %}
+
+{{ form_start(form) }}
+
+  <div class="row">
+
+  <div class="col-md-6">
+
+  <div class="form-group">
+    <label for="pwd">Nom:</label>
+     {{ form_widget(form.name,{ 'attr': {'class': 'form-control'}}) }}
+  </div>
+  <div class="form-group">
+    <label for="pwd">Ingredient:</label>
+     {{ form_widget(form.ingredient,{ 'attr': {'class': 'form-control'}}) }}
+  </div>
+  <div class="form-group">
+    <label for="pwd">Les Pains:</label>
+     {{ form_widget(form.bread,{ 'attr': {'class': 'form-control'}}) }}
+  </div>
+  <div class="form-group">
+    <label for="pwd">Les Pains:</label>
+     {{ form_widget(form.bread,{ 'attr': {'class': 'form-control'}}) }}
+  </div>
+  <div class="form-group">
+    <label for="pwd">Etat:</label>
+     {{ form_widget(form.statement,{ 'attr': {'class': 'form-control'}}) }}
+  </div>
+  
+  <div class="col-md-6">
+    <div class="pull-right">
+     <button type="submit" class="btn btn-primary">Sauvegarder Votre Sandwich</button>
+   </div>
+  </div>
+
+    
+  </div>
+
+    
+  </div>
+  
+{{ form_end(form) }}
+
+{% endblock Container %}

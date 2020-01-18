@@ -15,7 +15,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{path('AdminSection')}}">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -48,9 +48,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Gerer des Profils </h6>
-            <a class="collapse-item" href="#">Creer des profils</a>
+            <a class="collapse-item" href="{{path('addProfil')}}">Ajouter des profils</a>
             <a class="collapse-item" href="{{path('showAllProfil')}}">Liste des profils</a>
-            <a class="collapse-item" href="#">Modifier des profils</a>
           </div>
         </div>
       </li>
@@ -64,9 +63,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Gerer des Users:</h6>
-            <a class="collapse-item" href="#">Creer des Users</a>
+            <a class="collapse-item" href="{{path('addUser')}}">Ajouter des Users</a>
             <a class="collapse-item" href="{{path('showAllUser')}}">Liste des Users</a>
-            <a class="collapse-item" href="#">Modifier des Users</a>
           </div>
         </div>
       </li>
@@ -88,9 +86,8 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Gerer des Menus:</h6>
-            <a class="collapse-item" href="#">Creer des Menus</a>
-            <a class="collapse-item" href="{{path('showAllMenu')}}">Liste des Menus</a>
-            <a class="collapse-item" href="#">Modifier des Menus</a>
+            <a class="collapse-item" href="{{path('addMenu')}}">Ajouter des Menus</a>
+            <a class="collapse-item" href="{{path('addMenu')}}">Liste des Menus</a>
           </div>
         </div>
       </li>
@@ -103,12 +100,25 @@
         <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Gerer des Boissons:</h6>
-            <a class="collapse-item" href="#">Creer une Boisson</a>
+            <a class="collapse-item" href="{{path('addJuice')}}">Ajouter une Boisson</a>
             <a class="collapse-item" href="{{path('showAllJuice')}}">Liste des Boissons</a>
-            <a class="collapse-item" href="#">Editer des Boissons</a>
           </div>
         </div>
       </li>
+                 <!-- Nav Item - Pages Collapse Menu -->
+                 <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-Bread"></i>
+                    <span>Gerer des Pains</span>
+                  </a>
+                  <div id="collapsePages4" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                      <h6 class="collapse-header">Gerer des Pains:</h6>
+                      <a class="collapse-item" href="{{path('addBread')}}">Ajouter des Pains</a>
+                      <a class="collapse-item" href="{{path('showAllBread')}}">Liste les Pains</a>
+                    </div>
+                  </div>
+                </li>
             <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3" aria-expanded="true" aria-controls="collapsePages">
@@ -118,9 +128,8 @@
         <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Gerer des Ingredients:</h6>
-            <a class="collapse-item" href="#">Creer des Ingredients</a>
+            <a class="collapse-item" href="{{path('addBread')}}">Ajouter des Ingredients</a>
             <a class="collapse-item" href="{{path('showAllIngredient')}}">Liste des Ingredients</a>
-            <a class="collapse-item" href="#">Modifier des Ingredients</a>
           </div>
         </div>
       </li>
@@ -133,9 +142,8 @@
         <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Gerer des Sandwichs:</h6>
-            <a class="collapse-item" href="#">Creer des Sandwichs</a>
+            <a class="collapse-item" href="{{path('addSandwich')}}">Ajouter des Sandwichs</a>
             <a class="collapse-item" href="{{path('showAllSandwich')}}">liste des Sandwichs</a>
-            <a class="collapse-item" href="#">Modifier des Sandwichs</a>
           </div>
         </div>
       </li>

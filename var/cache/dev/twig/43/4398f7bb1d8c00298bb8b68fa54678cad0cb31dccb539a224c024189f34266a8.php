@@ -82,7 +82,7 @@ class __TwigTemplate_2880158fcd1b69135519b2805b3bd94e21a3eed1359aad4da65896200f9
                       <th>id</th>
                       <th>libelle</th>
                       <th>Date d'ajout </th>
-                      <th>Etat</th>
+                      <th>Supprimer / Editer</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -107,10 +107,14 @@ class __TwigTemplate_2880158fcd1b69135519b2805b3bd94e21a3eed1359aad4da65896200f9
             // line 30
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profil"], "createdAt", [], "any", false, false, false, 30), "d-m-Y | H:i:s"), "html", null, true);
             echo "</td> 
-                      <td>";
-            // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profil"], "statement", [], "any", false, false, false, 31), "html", null, true);
-            echo "</td>
+                      <td class=\"inline-block\">
+                        <a class=\"btn btn-large btn-xs btn-danger m-2\" href=\"";
+            // line 32
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteProfil", ["id" => twig_get_attribute($this->env, $this->source, $context["profil"], "id", [], "any", false, false, false, 32)]), "html", null, true);
+            echo "\" onClick=\"return confirm('Voulez vous supprimmer ?');\" role=\"button\">Supprimer</a>
+                        <a class=\"btn btn-large btn-xs btn-warning\" href=\"\" onClick=\"return confirm('Voulez vous supprimmer ?');\" role=\"button\">Editer</a>
+                      </td>
+
                   
                     </tr>
                     ";
@@ -118,9 +122,13 @@ class __TwigTemplate_2880158fcd1b69135519b2805b3bd94e21a3eed1359aad4da65896200f9
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['profil'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 39
         echo "                  </tbody>
                 </table>
+                <a class=\"btn btn-primary\"href=\"";
+        // line 41
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("addProfil");
+        echo "\" role=\"button\">Ajouter Un profil</a>
               </div>
             </div>
           </div>
@@ -147,7 +155,7 @@ class __TwigTemplate_2880158fcd1b69135519b2805b3bd94e21a3eed1359aad4da65896200f9
 
     public function getDebugInfo()
     {
-        return array (  122 => 35,  112 => 31,  108 => 30,  104 => 29,  100 => 28,  92 => 25,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  130 => 41,  126 => 39,  113 => 32,  108 => 30,  104 => 29,  100 => 28,  92 => 25,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -171,7 +179,7 @@ class __TwigTemplate_2880158fcd1b69135519b2805b3bd94e21a3eed1359aad4da65896200f9
                       <th>id</th>
                       <th>libelle</th>
                       <th>Date d'ajout </th>
-                      <th>Etat</th>
+                      <th>Supprimer / Editer</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -182,12 +190,17 @@ class __TwigTemplate_2880158fcd1b69135519b2805b3bd94e21a3eed1359aad4da65896200f9
                       <td>{{profil.id}}</td>
                       <td>{{profil.libelle}}</td>
                       <td>{{profil.createdAt|date(\"d-m-Y | H:i:s\")}}</td> 
-                      <td>{{profil.statement}}</td>
+                      <td class=\"inline-block\">
+                        <a class=\"btn btn-large btn-xs btn-danger m-2\" href=\"{{ path('deleteProfil',{id: profil.id}) }}\" onClick=\"return confirm('Voulez vous supprimmer ?');\" role=\"button\">Supprimer</a>
+                        <a class=\"btn btn-large btn-xs btn-warning\" href=\"\" onClick=\"return confirm('Voulez vous supprimmer ?');\" role=\"button\">Editer</a>
+                      </td>
+
                   
                     </tr>
                     {% endfor %}
                   </tbody>
                 </table>
+                <a class=\"btn btn-primary\"href=\"{{path('addProfil')}}\" role=\"button\">Ajouter Un profil</a>
               </div>
             </div>
           </div>

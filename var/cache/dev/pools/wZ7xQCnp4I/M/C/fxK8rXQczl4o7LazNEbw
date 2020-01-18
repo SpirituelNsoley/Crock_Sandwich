@@ -4,7 +4,8 @@ namespace Symfony\Component\VarExporter\Internal;
 
 return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
     $o = [
-        clone (Registry::$prototypes['Doctrine\\ORM\\Mapping\\ManyToMany'] ?? Registry::p('Doctrine\\ORM\\Mapping\\ManyToMany')),
+        clone (($p = &Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ManyToMany'] ?? Registry::p('Doctrine\\ORM\\Mapping\\ManyToMany')),
+        clone ($p['Doctrine\\ORM\\Mapping\\JoinTable'] ?? Registry::p('Doctrine\\ORM\\Mapping\\JoinTable')),
     ],
     null,
     [
@@ -12,13 +13,17 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
             'targetEntity' => [
                 'App\\Entity\\Sandwich',
             ],
-            'inversedBy' => [
+            'mappedBy' => [
                 'bread',
+            ],
+            'name' => [
+                1 => 'sandwich_bread',
             ],
         ],
     ],
     [
         $o[0],
+        $o[1],
     ],
     []
 );

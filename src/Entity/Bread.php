@@ -34,7 +34,8 @@ class Bread
     private $statement;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Sandwich", inversedBy="bread")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Sandwich", mappedBy="bread")
+     * @ORM\JoinTable(name="sandwich_bread")
      */
     private $sandwich;
 
